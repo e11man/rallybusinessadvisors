@@ -1,7 +1,7 @@
 <?php
 // Load content if not already loaded
 if (!isset($content)) {
-    $content = require '../content.php';
+    $content = require __DIR__ . '/../content.php';
 }
 ?>
 <header class="header">
@@ -22,17 +22,17 @@ if (!isset($content)) {
             <!-- Navigation Links -->
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#home" class="nav-link"><?php echo htmlspecialchars($content['navigation']['home']); ?></a></li>
-                    <li><a href="#services" class="nav-link"><?php echo htmlspecialchars($content['navigation']['services']); ?></a></li>
-                    <li><a href="#about" class="nav-link"><?php echo htmlspecialchars($content['navigation']['about']); ?></a></li>
-                    <li><a href="#contact" class="nav-link"><?php echo htmlspecialchars($content['navigation']['contact']); ?></a></li>
+                    <li><a href="/" class="nav-link"><?php echo htmlspecialchars($content['navigation']['home']); ?></a></li>
+                    <li><a href="/services.php" class="nav-link"><?php echo htmlspecialchars($content['navigation']['services']); ?></a></li>
+                    <li><a href="/about.php" class="nav-link"><?php echo htmlspecialchars($content['navigation']['about']); ?></a></li>
+                    <li><a href="/contact.php" class="nav-link"><?php echo htmlspecialchars($content['navigation']['contact']); ?></a></li>
                 </ul>
             </nav>
 
             <!-- CTA Buttons -->
             <div class="nav-actions">
-                <a href="#contact" class="button-secondary"><?php echo htmlspecialchars($content['navigation']['contact']); ?></a>
-                <a href="#contact" class="button-primary"><?php echo htmlspecialchars($content['hero']['cta_button']); ?></a>
+                <a href="/contact.php" class="button-secondary"><?php echo htmlspecialchars($content['navigation']['contact']); ?></a>
+                <a href="/contact.php" class="button-primary"><?php echo htmlspecialchars($content['hero']['cta_button']); ?></a>
             </div>
         </div>
     </div>
