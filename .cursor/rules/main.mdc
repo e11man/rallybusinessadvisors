@@ -1,0 +1,258 @@
+---
+alwaysApply: true
+---
+PHP Web Development & AI Collaboration Rules
+1. Core Philosophy
+This document outlines the development standards for creating clean, efficient, and secure web applications. Our approach is rooted in a "classic" but powerful tech stack, emphasizing modularity, reusability, and maintainability. These rules are designed to be perfectly compatible with AI-assisted development tools like Cursor, enabling rapid development without sacrificing quality. The core tenets are: Write it once, reuse it everywhere, and keep it secure.
+
+2. The Tech Stack: Classic & Capable
+We will use a curated stack of technologies that are time-tested, widely supported, and performant. This stack is ideal for everything from simple websites to complex applications and is well understood by AI tools.
+
+PHP (Hypertext Preprocessor):
+
+Role: The backbone of our application. PHP will handle all server-side logic, including processing forms, interacting with the content file, and dynamically building HTML pages.
+
+Best Practices:
+
+Always use the latest stable version of PHP (e.g., 8.1+) to benefit from performance improvements and new features.
+
+Use PHP's include or require statements to build pages from modular components (like header.php, footer.php, button.php).
+
+All files containing PHP code must use the .php extension.
+
+HTML (Hypertext Markup Language):
+
+Role: The structure and skeleton of our web pages.
+
+Best Practices:
+
+Write semantic HTML5. Use tags like <header>, <footer>, <nav>, <main>, <section>, and <article> appropriately. This improves SEO and accessibility.
+
+No hardcoded text. All user-facing text must be loaded dynamically from the content file via PHP. The only exceptions are things like the lang attribute in the <html> tag.
+
+CSS (Cascading Style Sheets):
+
+Role: The visual presentation and styling of the application.
+
+Best Practices:
+
+Use modern CSS layout techniques like Flexbox and Grid for all layout needs. Avoid legacy techniques like floats for layout.
+
+Organize CSS into a logical structure. A main style.css file should import other partial files for organization (e.g., _variables.css, _buttons.css, _forms.css).
+
+Mobile-First: All styling must be approached from a mobile-first perspective. See Section 6 for details.
+
+JavaScript (JS):
+
+Role: Client-side interactivity and enhancing the user experience.
+
+Best Practices:
+
+Use JavaScript for tasks that require immediate user feedback without a page reload (e.g., form validation, interactive UI elements, dynamic content updates via Fetch API).
+
+Write modern, "vanilla" JavaScript (ES6+). Avoid relying on heavy libraries like jQuery unless absolutely necessary for a specific plugin.
+
+Keep JavaScript modular. Separate code into different files based on functionality.
+
+3. The Dynamic Content File
+To ensure maximum flexibility and ease of updates, all text content on the site will be stored in a single, centralized location. This decouples the content from the presentation layer.
+
+Structure: We will use a PHP file (e.g., content.php) that returns a large, multi-dimensional associative array. This allows for easy organization and access.
+
+Example content.php:
+
+<?php
+// content.php
+return [
+    'site_title' => 'My Awesome Project',
+    'navigation' => [
+        'home' => 'Home',
+        'about' => 'About Us',
+        'contact' => 'Contact'
+    ],
+    'homepage' => [
+        'hero_title' => 'Welcome to the Future',
+        'hero_subtitle' => 'This is a demonstration of a dynamic and modular website.',
+        'cta_button' => 'Learn More'
+    ],
+    'about_page' => [
+        'title' => 'Our Story',
+        'paragraphs' => [
+            'This is the first paragraph of our about page...',
+            'This is the second, detailing our history...'
+        ]
+    ]
+];
+
+Implementation: In your PHP files, you will include this content file and access the text using the array keys.
+
+Example index.php:
+
+<?php
+// Load the content
+$content = require 'content.php';
+
+// Include the header
+include 'components/header.php'; 
+?>
+
+<main>
+    <h1><?php echo htmlspecialchars($content['homepage']['hero_title']); ?></h1>
+    <p><?php echo htmlspecialchars($content['homepage']['hero_subtitle']); ?></p>
+    <a href="#" class="button-primary"><?php echo htmlspecialchars($content['homepage']['cta_button']); ?></a>
+</main>
+
+<?php
+// Include the footer
+include 'components/footer.php';
+?>
+
+4. Modularity & Reusability (DRY Principle)
+Don't Repeat Yourself. Never write the same block of code twice. We will build a library of reusable components for everything from buttons to navbars.
+
+Component-Based Structure: Your project directory should be organized logically:
+
+/project
+|-- /components       // Reusable PHP/HTML components
+|   |-- header.php
+|   |-- footer.php
+|   |-- navbar.php
+|   |-- button.php
+|-- /css              // All CSS files
+|   |-- style.css
+|-- /js               // All JS files
+|-- /images           // All image assets
+|-- index.php         // Main pages
+|-- about.php
+|-- contact.php
+|-- content.php       // The content file
+
+5. Theming, Styling & Visual Identity
+This section defines the visual language of our applications. Adherence to these rules ensures a consistent, professional, and high-quality "Figma/Framer" feel.
+
+Color Palette: We use a clean, professional palette with strong contrast. Gradients are forbidden.
+
+:root {
+    /* Core Palette */
+    --primary-color: #0A2540;  /* Dark, professional blue for main actions */
+    --secondary-color: #525f7f; /* Muted slate for secondary text/elements */
+    --accent-color: #E8A87C;   /* Subtle tan/orange for visual interest */
+    --background-color: #FFFFFF;
+    --text-color: #333333;      /* Dark gray for body text, not pure black */
+    --light-gray: #f6f9fc;      /* For card backgrounds or sections */
+    --border-color: #e6ebf1;
+
+    /* Utility */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+Typography: We will use a modern, readable sans-serif font.
+
+Font Family: Use 'Inter' or a similar clean sans-serif font, hosted locally or from Google Fonts.
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+Typographic Scale: Establish a clear and consistent hierarchy for headings and text to guide the user's eye.
+
+Buttons: We only ever have two main button styles. These are defined once and reused.
+
+.button-primary: For the main call-to-action.
+
+.button-secondary: For less important actions.
+
+.button-primary, .button-secondary {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.button-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+.button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--border-color);
+}
+.button-secondary:hover {
+    background-color: var(--light-gray);
+    border-color: var(--secondary-color);
+}
+
+Iconography: Use a single, consistent set of clean, line-based icons. Libraries like Lucide Icons or Phosphor Icons are recommended. Avoid mixing icon styles.
+
+6. Secure Coding Practices
+Security is not an afterthought; it's a requirement from the start.
+
+Prevent Cross-Site Scripting (XSS): Always escape any data that is outputted to the HTML document using PHP's htmlspecialchars() function. This is non-negotiable.
+
+Correct: <h1><?php echo htmlspecialchars($content['homepage']['hero_title']); ?></h1>
+
+Incorrect: <h1><?php echo $content['homepage']['hero_title']; ?></h1>
+
+Prevent SQL Injection: If a database is used, all database queries must use prepared statements (using PDO or MySQLi). Never concatenate variables directly into SQL queries.
+
+Validate on the Server: While client-side JavaScript validation is good for user experience, it can be bypassed. Always re-validate all data on the server-side (in PHP) before processing it or storing it.
+
+File Permissions: Set file permissions on the server correctly. Core configuration files should not be publicly writable.
+
+7. Mobile-First Optimization & Layout
+The application must be perfectly usable and look great on all devices.
+
+Design Mobile First: Design the layout for a small screen first. Then, use CSS media queries to add styles for larger screens.
+
+Fluid Layouts & Units: Use relative units like %, vw, vh, rem, and em for layouts and typography. Avoid fixed pixel widths for page containers.
+
+Whitespace: Be generous with whitespace. It is the most important tool for creating a clean, high-end feel. Use consistent padding and margins throughout the layout.
+
+Optimized Images: Compress images and use responsive image techniques (<picture> tag or srcset attribute) to serve appropriately sized images.
+
+8. User Experience & Motion
+Subtle motion design elevates the user experience from static to dynamic and engaging.
+
+Transitions: Use CSS transition for interactive elements (buttons, links, form inputs) on hover and focus states to provide smooth visual feedback.
+
+Animations: Use simple, subtle animations to introduce elements on screen. A "fade in up" effect is a good default.
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+Performance: Animations should be performant. Prioritize animating opacity and transform properties, as they are less taxing on the browser.
+
+9. Workflow with Cursor AI
+Leverage your AI assistant to accelerate development within these rules.
+
+Prompting for Content: "Add a new page to my content.php file called 'services' with a title, a subtitle, and three service blocks, each with an icon name, a title, and a description."
+
+Prompting for Components: "Create a new reusable component in /components/pricing-card.php. It should take a PHP array with keys for title, price, and a features array. Use the existing primary and secondary button styles and apply the .fade-in-up animation class."
+
+Prompting for Refactoring: "Analyze my contact.php file. Refactor it to ensure it follows all security and modularity rules defined in my development guidelines."
+
+Prompting for CSS: "Generate the CSS for the .pricing-card component. It should be a flexbox container, use the color and shadow variables from my stylesheet, and be fully responsive."
