@@ -1,0 +1,25 @@
+# Git
+.git
+.gitignore
+
+# Editor
+.cursor
+.vscode
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Documentation (unless needed)
+README.md
+
+# Development
+.env.local
+.env.development
