@@ -1,9 +1,5 @@
 {
-  "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.6.0"
-    }
-  },
+
   "rewrites": [
     {
       "source": "/",
@@ -20,6 +16,10 @@
     {
       "source": "/contact",
       "destination": "/contact.php"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1.php"
     }
   ],
   "headers": [
