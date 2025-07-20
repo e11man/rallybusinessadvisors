@@ -1,21 +1,28 @@
 {
-
+  "functions": {
+    "api/*.php": {
+      "runtime": "vercel-php@0.7.4"
+    },
+    "api/**/*.php": {
+      "runtime": "vercel-php@0.7.4"
+    }
+  },
   "rewrites": [
     {
       "source": "/",
-      "destination": "/index.php"
+      "destination": "/api/pages/index.php"
     },
     {
       "source": "/about",
-      "destination": "/about.php"
+      "destination": "/api/pages/about.php"
     },
     {
       "source": "/services",
-      "destination": "/services.php"
+      "destination": "/api/pages/services.php"
     },
     {
       "source": "/contact",
-      "destination": "/contact.php"
+      "destination": "/api/pages/contact.php"
     },
     {
       "source": "/api/(.*)",
