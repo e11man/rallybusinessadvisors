@@ -9,7 +9,7 @@ if (!isset($content)) {
         <div class="hero-overlay"></div>
     </div>
     
-    <div class="container">
+    <div class="container hero-container">
         <div class="hero-content">
             <!-- Modern Credibility Badge -->
             <div class="hero-badge">
@@ -53,4 +53,4 @@ if (!isset($content)) {
             </a>
         </div>
     </div>
-</section> 
+</section>

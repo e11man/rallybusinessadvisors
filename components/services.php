@@ -8,7 +8,7 @@ if (!isset($content)) {
     <div class="container">
         <!-- Services Intro -->
         <div class="services-intro">
-            <div class="section-tag">All in one services</div>
+            <div class="section-tag"><?php echo htmlspecialchars($content['services']['title']); ?></div>
             <h2 class="section-title">Innovative solutions for real world challenges</h2>
             <p class="section-description">
                 We deliver sharp, results-driven consulting across the core areas of 
@@ -19,75 +19,101 @@ if (!isset($content)) {
 
         <!-- Services Grid -->
         <div class="services-grid">
-            <!-- Service 1: ALIGN 360 Framework -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24 6L6 14L24 22L42 14L24 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M6 34L24 42L42 34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M6 24L24 32L42 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+            <?php foreach ($content['services']['items'] as $index => $service): ?>
+            <div class="service-card" data-service="<?php echo $index; ?>">
+                <!-- Service Header -->
+                <div class="service-header">
+                    <div class="service-icon">
+                        <?php if ($index === 0): // ALIGN 360 Framework ?>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="24" cy="24" r="4" fill="currentColor"/>
+                            <path d="M24 4V8M24 40V44M4 24H8M40 24H44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M35.36 12.64L32.95 15.05M15.05 32.95L12.64 35.36M35.36 35.36L32.95 32.95M15.05 15.05L12.64 12.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <?php elseif ($index === 1): // Non-Profit Consulting ?>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 4L6 12V22C6 34 24 44 24 44C24 44 42 34 42 22V12L24 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M18 20L22 24L30 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <?php else: // Executive & Career Coaching ?>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 4C35.046 4 44 12.954 44 24C44 35.046 35.046 44 24 44C12.954 44 4 35.046 4 24C4 12.954 12.954 4 24 4Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 24L20 28L32 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M24 12V16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M24 32V36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <?php endif; ?>
+                    </div>
+                    <div class="service-badge">
+                        <?php if ($index === 0): ?>
+                        <span class="badge-text">SIGNATURE</span>
+                        <?php elseif ($index === 1): ?>
+                        <span class="badge-text">SPECIALIZED</span>
+                        <?php else: ?>
+                        <span class="badge-text">PERSONAL</span>
+                        <?php endif; ?>
+                    </div>
                 </div>
-                <h3 class="service-title">Business strategy</h3>
-                <p class="service-description">
-                    Clear, data-driven strategies to drive growth and competitive edge.
-                </p>
-                <div class="service-image">
-                    <div class="placeholder-image"></div>
-                </div>
-                <a href="/contact.php" class="service-button">
-                    Learn more
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
 
-            <!-- Service 2: Operations Optimization -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24 12C30.627 12 36 17.373 36 24C36 30.627 30.627 36 24 36C17.373 36 12 30.627 12 24C12 17.373 17.373 12 24 12Z" stroke="currentColor" stroke-width="2"/>
-                        <path d="M24 18L24 24L30 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                <!-- Service Content -->
+                <div class="service-content">
+                    <h3 class="service-title"><?php echo htmlspecialchars($service['title']); ?></h3>
+                    <p class="service-description">
+                        <?php echo htmlspecialchars($service['description']); ?>
+                    </p>
                 </div>
-                <h3 class="service-title">Operations optimization</h3>
-                <p class="service-description">
-                    Streamlining processes to maximize efficiency and output.
-                </p>
-                <div class="service-image">
-                    <div class="placeholder-image"></div>
-                </div>
-                <a href="/contact.php" class="service-button">
-                    Learn more
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
 
-            <!-- Service 3: Organizational Development -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 20C19.314 20 22 17.314 22 14C22 10.686 19.314 8 16 8C12.686 8 10 10.686 10 14C10 17.314 12.686 20 16 20Z" stroke="currentColor" stroke-width="2"/>
-                        <path d="M32 20C35.314 20 38 17.314 38 14C38 10.686 35.314 8 32 8C28.686 8 26 10.686 26 14C26 17.314 28.686 20 32 20Z" stroke="currentColor" stroke-width="2"/>
-                        <path d="M24 40C27.314 40 30 37.314 30 34C30 30.686 27.314 28 24 28C20.686 28 18 30.686 18 34C18 37.314 20.686 40 24 40Z" stroke="currentColor" stroke-width="2"/>
-                        <path d="M22 20L26 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M22 28L26 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
+                <!-- Service Features -->
+                <div class="service-features">
+                    <?php if ($index === 0): // ALIGN 360 Framework features ?>
+                    <ul class="feature-list">
+                        <li>Strategic planning & execution</li>
+                        <li>Performance optimization</li>
+                        <li>Growth acceleration</li>
+                    </ul>
+                    <?php elseif ($index === 1): // Non-Profit features ?>
+                    <ul class="feature-list">
+                        <li>Mission-driven strategy</li>
+                        <li>Board governance</li>
+                        <li>Impact measurement</li>
+                    </ul>
+                    <?php else: // Executive Coaching features ?>
+                    <ul class="feature-list">
+                        <li>Leadership development</li>
+                        <li>Career advancement</li>
+                        <li>Personal growth</li>
+                    </ul>
+                    <?php endif; ?>
                 </div>
-                <h3 class="service-title">Organizational development</h3>
-                <p class="service-description">
-                    Shaping agile teams and future-ready leadership structures.
+
+                <!-- Service Action -->
+                <div class="service-action">
+                    <a href="/contact.php" class="service-link">
+                        <span>Explore this service</span>
+                        <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.16666 10H15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- Services CTA -->
+        <div class="services-cta">
+            <div class="services-cta-content">
+                <h3 class="services-cta-title">Ready to transform your business?</h3>
+                <p class="services-cta-description">
+                    Let's discuss how our proven methodologies can drive your success.
                 </p>
-                <div class="service-image">
-                    <div class="placeholder-image"></div>
-                </div>
-                <a href="/contact.php" class="service-button">
-                    Learn more
-                    <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <a href="/contact.php" class="button-primary services-cta-button">
+                    Start your journey
+                    <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.16666 10H15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
             </div>

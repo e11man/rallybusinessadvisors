@@ -27,7 +27,7 @@ if (!isset($content)) {
             </button>
 
             <!-- Navigation Links -->
-            <nav class="nav" id="mobile-nav">
+            <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="/" class="nav-link"><?php echo htmlspecialchars($content['navigation']['home']); ?></a></li>
                     <li><a href="/services.php" class="nav-link"><?php echo htmlspecialchars($content['navigation']['services']); ?></a></li>
@@ -37,16 +37,14 @@ if (!isset($content)) {
 
                 <!-- Mobile CTA Buttons -->
                 <div class="nav-actions-mobile">
-                    <a href="/contact.php" class="button-secondary"><?php echo htmlspecialchars($content['navigation']['contact']); ?></a>
                     <a href="/contact.php" class="button-primary"><?php echo htmlspecialchars($content['hero']['cta_button']); ?></a>
                 </div>
             </nav>
 
             <!-- Desktop CTA Buttons -->
             <div class="nav-actions">
-                <a href="/contact.php" class="button-secondary"><?php echo htmlspecialchars($content['navigation']['contact']); ?></a>
                 <a href="/contact.php" class="button-primary"><?php echo htmlspecialchars($content['hero']['cta_button']); ?></a>
             </div>
         </div>
     </div>
-</header> 
+</header>
