@@ -1,6 +1,6 @@
 <?php
 // Load the content
-$content = require 'content.php';
+$content = require __DIR__ . '/content.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,16 +22,16 @@ $content = require 'content.php';
 </head>
 <body>
     <!-- Header -->
-    <?php include 'components/header.php'; ?>
+    <?php include __DIR__ . '/../../components/header.php'; ?>
     
     <!-- About Section -->
-    <?php include 'components/about.php'; ?>
+    <?php include __DIR__ . '/../../components/about.php'; ?>
     
     <!-- Stats Section -->
-    <?php include 'components/stats.php'; ?>
+    <?php include __DIR__ . '/../../components/stats.php'; ?>
     
     <!-- Footer -->
-    <?php include 'components/footer.php'; ?>
+    <?php include __DIR__ . '/../../components/footer.php'; ?>
     
     <!-- Mobile Menu JavaScript -->
     <script>
