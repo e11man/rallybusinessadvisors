@@ -6,20 +6,31 @@
   },
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/(css|js|images)/(.*)",
+      "dest": "/$1/$2"
+    },
+    {
+      "src": "/",
+      "dest": "/index.php"
+    },
+    {
+      "src": "/about/?",
+      "dest": "/about.php"
+    },
+    {
+      "src": "/services/?",
+      "dest": "/services.php"
+    },
+    {
+      "src": "/contact/?",
+      "dest": "/contact.php"
+    },
+    {
+      "src": "/(.*\\.php)$",
       "dest": "/$1"
     }
   ],
   "headers": [
-    {
-      "source": "/css/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
     {
       "source": "/(.*)",
       "headers": [
@@ -36,6 +47,15 @@
           "value": "1; mode=block"
         }
       ]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
-} 
+}

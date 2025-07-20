@@ -1,7 +1,7 @@
 <?php
 // Load content if not already loaded
 if (!isset($content)) {
-    $content = require '../content.php';
+    $content = require __DIR__ . '/../content.php';
 }
 ?>
 <section class="contact" id="contact">

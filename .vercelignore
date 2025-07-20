@@ -20,11 +20,17 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+*~
 
 # Logs
 *.log
 logs/
+npm-debug.log*
 
 # Temporary files
 *.tmp
-*.temp 
+*.temp
+
+# Development
+.env.local
+.env.development
