@@ -22,25 +22,25 @@ $content = require 'content.php';
 </head>
 <body>
     <!-- Header -->
-    <?php include 'components/header.php'; ?>
+    <?php include __DIR__ . '/../../components/header.php'; ?>
     
     <!-- Hero Section -->
-    <?php include 'components/hero.php'; ?>
+    <?php include __DIR__ . '/../../components/hero.php'; ?>
     
     <!-- Services Section -->
-    <?php include 'components/services.php'; ?>
+    <?php include __DIR__ . '/../../components/services.php'; ?>
     
     <!-- Stats Section -->
-    <?php include 'components/stats.php'; ?>
+    <?php include __DIR__ . '/../../components/stats.php'; ?>
     
     <!-- About Section -->
-    <?php include 'components/about.php'; ?>
+    <?php include __DIR__ . '/../../components/about.php'; ?>
     
     <!-- Contact Section -->
-    <?php include 'components/contact.php'; ?>
+    <?php include __DIR__ . '/../../components/contact.php'; ?>
     
     <!-- Footer -->
-    <?php include 'components/footer.php'; ?>
+    <?php include __DIR__ . '/../../components/footer.php'; ?>
     
     <!-- Enhanced JavaScript -->
     <script>
@@ -315,4 +315,4 @@ $content = require 'content.php';
         });
     </script>
 </body>
-</html> 
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "rally-business-advisors",
+  "version": "1.0.0",
+  "description": "Rally Business Advisors - Professional PHP website for business consulting services",
+  "scripts": {
+    "dev": "php -S localhost:8000",
+    "deploy": "vercel --prod"
+  },
+  "keywords": ["php", "business", "consulting", "vercel"],
+  "author": "Rally Business Advisors",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

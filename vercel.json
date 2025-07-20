@@ -1,33 +1,32 @@
 {
   "functions": {
-    "*.php": {
-      "runtime": "vercel-php@0.6.0"
+    "api/*.php": {
+      "runtime": "vercel-php@0.7.4"
+    },
+    "api/**/*.php": {
+      "runtime": "vercel-php@0.7.4"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(css|js|images)/(.*)",
-      "dest": "/$1/$2"
+      "source": "/",
+      "destination": "/api/pages/index.php"
     },
     {
-      "src": "/",
-      "dest": "/index.php"
+      "source": "/about",
+      "destination": "/api/pages/about.php"
     },
     {
-      "src": "/about/?",
-      "dest": "/about.php"
+      "source": "/services",
+      "destination": "/api/pages/services.php"
     },
     {
-      "src": "/services/?",
-      "dest": "/services.php"
+      "source": "/contact",
+      "destination": "/api/pages/contact.php"
     },
     {
-      "src": "/contact/?",
-      "dest": "/contact.php"
-    },
-    {
-      "src": "/(.*\\.php)$",
-      "dest": "/$1"
+      "source": "/api/(.*)",
+      "destination": "/api/$1.php"
     }
   ],
   "headers": [
