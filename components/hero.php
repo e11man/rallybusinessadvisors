@@ -37,7 +37,7 @@ if (!isset($content)) {
             </p>
 
             <!-- CTA Button -->
-            <a href="#contact" class="button-primary hero-cta">
+            <a href="/contact.php" class="button-primary hero-cta">
                 <?php echo htmlspecialchars($content['hero']['cta_button']); ?>
                 <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4.16666 10H15.8333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
