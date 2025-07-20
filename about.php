@@ -32,5 +32,50 @@ $content = require 'content.php';
     
     <!-- Footer -->
     <?php include 'components/footer.php'; ?>
+    
+    <!-- Mobile Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileNav = document.querySelector('.nav');
+
+            if (mobileMenuToggle && mobileNav) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    const isActive = mobileNav.classList.contains('active');
+                    
+                    mobileNav.classList.toggle('active');
+                    mobileMenuToggle.classList.toggle('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', !isActive);
+                    
+                    // Prevent body scroll when menu is open
+                    document.body.style.overflow = isActive ? 'auto' : 'hidden';
+                });
+                
+                // Close menu when clicking on nav links
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileNav.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                        if (mobileNav.classList.contains('active')) {
+                            mobileNav.classList.remove('active');
+                            mobileMenuToggle.classList.remove('active');
+                            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

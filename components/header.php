@@ -19,17 +19,30 @@ if (!isset($content)) {
                 <span class="logo-text"><?php echo htmlspecialchars($content['site_title']); ?></span>
             </div>
 
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
             <!-- Navigation Links -->
-            <nav class="nav">
+            <nav class="nav" id="mobile-nav">
                 <ul class="nav-list">
                     <li><a href="/" class="nav-link"><?php echo htmlspecialchars($content['navigation']['home']); ?></a></li>
                     <li><a href="/services.php" class="nav-link"><?php echo htmlspecialchars($content['navigation']['services']); ?></a></li>
                     <li><a href="/about.php" class="nav-link"><?php echo htmlspecialchars($content['navigation']['about']); ?></a></li>
                     <li><a href="/contact.php" class="nav-link"><?php echo htmlspecialchars($content['navigation']['contact']); ?></a></li>
                 </ul>
+
+                <!-- Mobile CTA Buttons -->
+                <div class="nav-actions-mobile">
+                    <a href="/contact.php" class="button-secondary"><?php echo htmlspecialchars($content['navigation']['contact']); ?></a>
+                    <a href="/contact.php" class="button-primary"><?php echo htmlspecialchars($content['hero']['cta_button']); ?></a>
+                </div>
             </nav>
 
-            <!-- CTA Buttons -->
+            <!-- Desktop CTA Buttons -->
             <div class="nav-actions">
                 <a href="/contact.php" class="button-secondary"><?php echo htmlspecialchars($content['navigation']['contact']); ?></a>
                 <a href="/contact.php" class="button-primary"><?php echo htmlspecialchars($content['hero']['cta_button']); ?></a>

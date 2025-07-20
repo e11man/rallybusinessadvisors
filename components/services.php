@@ -35,7 +35,7 @@ if (!isset($content)) {
                 <div class="service-image">
                     <div class="placeholder-image"></div>
                 </div>
-                <a href="#contact" class="service-button">
+                <a href="/contact.php" class="service-button">
                     Learn more
                     <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -58,7 +58,7 @@ if (!isset($content)) {
                 <div class="service-image">
                     <div class="placeholder-image"></div>
                 </div>
-                <a href="#contact" class="service-button">
+                <a href="/contact.php" class="service-button">
                     Learn more
                     <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -84,7 +84,7 @@ if (!isset($content)) {
                 <div class="service-image">
                     <div class="placeholder-image"></div>
                 </div>
-                <a href="#contact" class="service-button">
+                <a href="/contact.php" class="service-button">
                     Learn more
                     <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
