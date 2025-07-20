@@ -1,33 +1,25 @@
 {
   "functions": {
-    "*.php": {
+    "api/*.php": {
       "runtime": "vercel-php@0.6.0"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(css|js|images)/(.*)",
-      "dest": "/$1/$2"
+      "source": "/",
+      "destination": "/index.php"
     },
     {
-      "src": "/",
-      "dest": "/index.php"
+      "source": "/about",
+      "destination": "/about.php"
     },
     {
-      "src": "/about/?",
-      "dest": "/about.php"
+      "source": "/services",
+      "destination": "/services.php"
     },
     {
-      "src": "/services/?",
-      "dest": "/services.php"
-    },
-    {
-      "src": "/contact/?",
-      "dest": "/contact.php"
-    },
-    {
-      "src": "/(.*\\.php)$",
-      "dest": "/$1"
+      "source": "/contact",
+      "destination": "/contact.php"
     }
   ],
   "headers": [
