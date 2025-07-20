@@ -11,21 +11,25 @@ if (!isset($content)) {
     
     <div class="container">
         <div class="hero-content">
-            <!-- Tagline -->
-            <div class="hero-tagline">
-                <span class="tag-badge"><?php echo htmlspecialchars($content['hero']['tagline']); ?></span>
-                <span class="tag-subtitle"><?php echo htmlspecialchars($content['hero']['subtitle']); ?></span>
+            <!-- Credibility Badge -->
+            <div class="hero-badge">
+                <span class="badge-text"><?php echo htmlspecialchars($content['hero']['tagline']); ?></span>
             </div>
 
-            <!-- Main Title -->
+            <!-- Main Title with Line Breaks -->
             <h1 class="hero-title">
                 <?php 
                 $title_lines = explode("\n", $content['hero']['title']);
                 foreach ($title_lines as $line) {
-                    echo '<span>' . htmlspecialchars(trim($line)) . '</span>';
+                    echo '<span class="title-line">' . htmlspecialchars(trim($line)) . '</span>';
                 }
                 ?>
             </h1>
+
+            <!-- Supporting Subtitle -->
+            <p class="hero-subtitle">
+                <?php echo htmlspecialchars($content['hero']['subtitle']); ?>
+            </p>
 
             <!-- Description -->
             <p class="hero-description">

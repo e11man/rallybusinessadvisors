@@ -12,7 +12,7 @@ return [
     ],
     
     'hero' => [
-        'tagline' => 'Best solution',
+        'tagline' => 'BEST SOLUTION',
         'subtitle' => 'Empowering bold business moves',
         'title' => 'Your strategy partner in business growth',
         'description' => 'We partner with visionary leaders to unlock growth, navigate transformation, and build future-proof businesses through tailored corporate strategy and operational excellence.',
@@ -72,6 +72,18 @@ return [
     ],
     
     'footer' => [
-        'copyright' => '©2024 by Rally Business Advisors, LLC'
+        'copyright' => '©2024 by Rally Business Advisors, LLC',
+        'description' => 'Empowering bold business moves through strategic partnership and operational excellence.',
+        'address' => [
+            'street' => '123 Business District',
+            'suite' => 'Suite 456',
+            'city' => 'Corporate City, ST 12345'
+        ],
+        'phone' => '+1 (555) RALLY-01',
+        'social' => [
+            'linkedin' => 'LinkedIn',
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram'
+        ]
     ]
 ]; 

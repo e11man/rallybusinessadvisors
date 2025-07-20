@@ -39,6 +39,9 @@ $content = require 'content.php';
     <!-- Contact Section -->
     <?php include 'components/contact.php'; ?>
     
+    <!-- Footer -->
+    <?php include 'components/footer.php'; ?>
+    
     <!-- Enhanced JavaScript -->
     <script>
         // Enhanced interactions and animations
@@ -103,46 +106,11 @@ $content = require 'content.php';
                 });
             });
             
-            // Intersection Observer for scroll animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe sections for animations
-            const sections = document.querySelectorAll('.services, .stats, .about, .contact');
+            // Make all sections visible immediately on page load
+            const sections = document.querySelectorAll('.services, .stats, .about, .contact, .service-card, .stat-item');
             sections.forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                section.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-                observer.observe(section);
-            });
-            
-            // Staggered animation for service cards
-            const serviceCards = document.querySelectorAll('.service-card');
-            serviceCards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(40px) scale(0.95)';
-                card.style.transition = `opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.2}s, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.2}s`;
-                observer.observe(card);
-            });
-            
-            // Staggered animation for stat items
-            const statItems = document.querySelectorAll('.stat-item');
-            statItems.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(30px)';
-                item.style.transition = `opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.15}s, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.15}s`;
-                observer.observe(item);
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
             });
             
             // Parallax effect for hero background
@@ -219,6 +187,91 @@ $content = require 'content.php';
                     }
                 });
             });
+            
+            // Contact form handling
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const submitButton = this.querySelector('.form-submit');
+                    const originalText = submitButton.innerHTML;
+                    
+                    // Show loading state
+                    submitButton.innerHTML = `
+                        <svg class="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="31.416" stroke-dashoffset="31.416">
+                                <animate attributeName="stroke-dasharray" dur="2s" values="0 31.416;15.708 15.708;0 31.416" repeatCount="indefinite"/>
+                                <animate attributeName="stroke-dashoffset" dur="2s" values="0;-15.708;-31.416" repeatCount="indefinite"/>
+                            </circle>
+                        </svg>
+                        Sending...
+                    `;
+                    submitButton.disabled = true;
+                    
+                    // Collect form data
+                    const formData = new FormData(this);
+                    const data = Object.fromEntries(formData);
+                    
+                    try {
+                        const response = await fetch('/api/contact.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(data)
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (result.success) {
+                            // Show success message
+                            showNotification(result.message, 'success');
+                            this.reset();
+                        } else {
+                            // Show error message
+                            showNotification(result.message, 'error');
+                        }
+                    } catch (error) {
+                        showNotification('Network error. Please try again.', 'error');
+                    } finally {
+                        // Reset button
+                        submitButton.innerHTML = originalText;
+                        submitButton.disabled = false;
+                    }
+                });
+            }
+            
+            // Notification system
+            function showNotification(message, type = 'info') {
+                // Remove existing notifications
+                const existingNotifications = document.querySelectorAll('.notification');
+                existingNotifications.forEach(notification => notification.remove());
+                
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <span class="notification-message">${message}</span>
+                        <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                
+                // Add to page
+                document.body.appendChild(notification);
+                
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.remove();
+                    }
+                }, 5000);
+            }
         });
     </script>
 </body>

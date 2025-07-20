@@ -26,5 +26,8 @@ $content = require 'content.php';
     
     <!-- Contact Section -->
     <?php include 'components/contact.php'; ?>
+    
+    <!-- Footer -->
+    <?php include 'components/footer.php'; ?>
 </body>
 </html>

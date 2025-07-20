@@ -26,5 +26,8 @@ $content = require 'content.php';
     
     <!-- Services Section -->
     <?php include 'components/services.php'; ?>
+    
+    <!-- Footer -->
+    <?php include 'components/footer.php'; ?>
 </body>
 </html>

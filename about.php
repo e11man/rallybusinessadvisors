@@ -29,5 +29,8 @@ $content = require 'content.php';
     
     <!-- Stats Section -->
     <?php include 'components/stats.php'; ?>
+    
+    <!-- Footer -->
+    <?php include 'components/footer.php'; ?>
 </body>
 </html>
