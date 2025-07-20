@@ -85,4 +85,7 @@ if (!isset($content)) {
             </div>
         </div>
     </div>
-</footer> 
+</footer>
+
+<!-- JavaScript -->
+<script src="/js/main.js"></script> 
