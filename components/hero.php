@@ -11,37 +11,44 @@ if (!isset($content)) {
     
     <div class="container">
         <div class="hero-content">
-            <!-- Credibility Badge -->
+            <!-- Modern Credibility Badge -->
             <div class="hero-badge">
                 <span class="badge-text"><?php echo htmlspecialchars($content['hero']['tagline']); ?></span>
             </div>
 
-            <!-- Main Title with Line Breaks -->
+            <!-- Bold Main Title -->
             <h1 class="hero-title">
                 <?php 
-                $title_lines = explode("\n", $content['hero']['title']);
-                foreach ($title_lines as $line) {
-                    echo '<span class="title-line">' . htmlspecialchars(trim($line)) . '</span>';
+                $title_lines = explode(' in ', $content['hero']['title']);
+                if (count($title_lines) > 1) {
+                    echo '<span class="title-line">' . htmlspecialchars(trim($title_lines[0])) . ' in</span>';
+                    echo '<span class="title-line">' . htmlspecialchars(trim($title_lines[1])) . '</span>';
+                } else {
+                    $title_lines = explode(' ', $content['hero']['title']);
+                    $chunks = array_chunk($title_lines, ceil(count($title_lines) / 2));
+                    foreach ($chunks as $chunk) {
+                        echo '<span class="title-line">' . htmlspecialchars(implode(' ', $chunk)) . '</span>';
+                    }
                 }
                 ?>
             </h1>
 
-            <!-- Supporting Subtitle -->
+            <!-- Compelling Subtitle -->
             <p class="hero-subtitle">
                 <?php echo htmlspecialchars($content['hero']['subtitle']); ?>
             </p>
 
-            <!-- Description -->
+            <!-- Clear Value Proposition -->
             <p class="hero-description">
                 <?php echo htmlspecialchars($content['hero']['description']); ?>
             </p>
 
-            <!-- CTA Button -->
-            <a href="/contact.php" class="button-primary hero-cta">
+            <!-- Prominent CTA Button -->
+            <a href="/contact.php" class="button-primary hero-cta" role="button">
                 <?php echo htmlspecialchars($content['hero']['cta_button']); ?>
-                <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.16666 10H15.8333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M4.16666 10H15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </a>
         </div>
