@@ -9,16 +9,14 @@ if (!isset($content)) {
         <div class="stats-overlay"></div>
     </div>
     
-    <div class="scroll-stack-scroller">
-        <div class="scroll-stack-inner">
-            <div class="container">
-                <div class="stats-intro">
-                    <h2 class="stats-title">Strategic solutions designed to drive clarity, performance, and growth.</h2>
-                </div>
-            </div>
-            
-            <!-- Scroll Stack Cards -->
-            <div class="scroll-stack-card-wrapper">
+    <div class="container">
+        <div class="stats-intro">
+            <h2 class="stats-title">Strategic solutions designed to drive clarity, performance, and growth.</h2>
+        </div>
+        
+        <!-- Scroll Stack Container for Stats Cards -->
+        <div class="scroll-stack-scroller">
+            <div class="scroll-stack-inner">
                 <div class="scroll-stack-card stat-item">
                     <div class="stat-number">95%</div>
                     <div class="stat-label">Client Satisfaction Rate</div>
@@ -26,9 +24,7 @@ if (!isset($content)) {
                         Long-term relationships built on trust, clarity, and results.
                     </p>
                 </div>
-            </div>
-            
-            <div class="scroll-stack-card-wrapper">
+                
                 <div class="scroll-stack-card stat-item">
                     <div class="stat-number">15+</div>
                     <div class="stat-label">Years of Combined Experience</div>
@@ -36,9 +32,7 @@ if (!isset($content)) {
                         A team of senior consultants with deep industry insight.
                     </p>
                 </div>
-            </div>
-            
-            <div class="scroll-stack-card-wrapper">
+                
                 <div class="scroll-stack-card stat-item">
                     <div class="stat-number">250+</div>
                     <div class="stat-label">Projects Completed</div>
@@ -46,9 +40,7 @@ if (!isset($content)) {
                         Successfully executed initiatives across strategy, operations, and transformation.
                     </p>
                 </div>
-            </div>
-            
-            <div class="scroll-stack-card-wrapper">
+                
                 <div class="scroll-stack-card stat-item">
                     <div class="stat-number">40%</div>
                     <div class="stat-label">Average Growth Achieved</div>
@@ -56,21 +48,19 @@ if (!isset($content)) {
                         Clients report measurable improvement in performance and ROI.
                     </p>
                 </div>
+                
+                <div class="scroll-stack-end"></div>
             </div>
-            
-            <div class="scroll-stack-end"></div>
-            
-            <div class="container">
-                <div class="stats-cta">
-                    <a href="/contact.php" class="button-primary stats-button">
-                        Let's build your next chapter
-                        <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.16666 10H15.8333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+        </div>
+        
+        <div class="stats-cta">
+            <a href="/contact.php" class="button-primary stats-button">
+                Let's build your next chapter
+                <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.16666 10H15.8333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 4.16667L15.8333 10L10 15.8333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </div>
     </div>
 </section>
