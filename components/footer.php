@@ -88,4 +88,5 @@ if (!isset($content)) {
 </footer>
 
 <!-- JavaScript -->
-<script src="/js/main.js"></script> 
+<script src="/js/main.js"></script>
+<script src="/js/scroll-stack.js"></script> 

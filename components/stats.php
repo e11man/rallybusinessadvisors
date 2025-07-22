@@ -14,41 +14,42 @@ if (!isset($content)) {
             <h2 class="stats-title">Strategic solutions designed to drive clarity, performance, and growth.</h2>
         </div>
         
-        <div class="stats-grid">
-            <!-- Stat 1 -->
-            <div class="stat-item">
-                <div class="stat-number">95%</div>
-                <div class="stat-label">Client Satisfaction Rate</div>
-                <p class="stat-description">
-                    Long-term relationships built on trust, clarity, and results.
-                </p>
-            </div>
-            
-            <!-- Stat 2 -->
-            <div class="stat-item">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Years of Combined Experience</div>
-                <p class="stat-description">
-                    A team of senior consultants with deep industry insight.
-                </p>
-            </div>
-            
-            <!-- Stat 3 -->
-            <div class="stat-item">
-                <div class="stat-number">250+</div>
-                <div class="stat-label">Projects Completed</div>
-                <p class="stat-description">
-                    Successfully executed initiatives across strategy, operations, and transformation.
-                </p>
-            </div>
-            
-            <!-- Stat 4 -->
-            <div class="stat-item">
-                <div class="stat-number">40%</div>
-                <div class="stat-label">Average Growth Achieved</div>
-                <p class="stat-description">
-                    Clients report measurable improvement in performance and ROI.
-                </p>
+        <!-- Scroll Stack Container for Stats Cards -->
+        <div class="scroll-stack-scroller">
+            <div class="scroll-stack-inner">
+                <div class="scroll-stack-card stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Client Satisfaction Rate</div>
+                    <p class="stat-description">
+                        Long-term relationships built on trust, clarity, and results.
+                    </p>
+                </div>
+                
+                <div class="scroll-stack-card stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years of Combined Experience</div>
+                    <p class="stat-description">
+                        A team of senior consultants with deep industry insight.
+                    </p>
+                </div>
+                
+                <div class="scroll-stack-card stat-item">
+                    <div class="stat-number">250+</div>
+                    <div class="stat-label">Projects Completed</div>
+                    <p class="stat-description">
+                        Successfully executed initiatives across strategy, operations, and transformation.
+                    </p>
+                </div>
+                
+                <div class="scroll-stack-card stat-item">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-label">Average Growth Achieved</div>
+                    <p class="stat-description">
+                        Clients report measurable improvement in performance and ROI.
+                    </p>
+                </div>
+                
+                <div class="scroll-stack-end"></div>
             </div>
         </div>
         
